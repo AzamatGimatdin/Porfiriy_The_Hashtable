@@ -3,18 +3,21 @@
 
 #include "common.h"
 #include "list.h"
-#include "vector_void.h"
+#include "vector_list.h"
 
 typedef struct hashtable {
-    vector_void v;
-    int size;
+    vector_list data; 
+    ull size;  
+    int k;
+    int b;
 } hashtable;
 
-int hashtable_create(hashtable* ht);
-int hashtable_free(hashtable* ht);
+int hashtable_create(hashtable* h);
+void hashtable_free(hashtable* h);
 
-int key_generate(int value);
+int hashtable_set(hashtable* h, int key, int value);
+int hashtable_delete(hashtable* h, int key);
 
-int hashtable_push(hashtable* ht, int value);
+int hashtable_search(hashtable* h, int key, int* return_value);
 
-#endif // HASHTABLE_H
+#endif  // HASHTABLE_H

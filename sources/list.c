@@ -31,7 +31,6 @@ void list_free(list* l) {
 
 int list_push_back(list* l, int key, int value) {
     if (!l) return -1;
-
     node* new = malloc(sizeof(node));
     if (!new) return -1;
     new->value = value;
